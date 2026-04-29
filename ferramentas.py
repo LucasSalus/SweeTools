@@ -7,7 +7,7 @@ from docx.enum.section import WD_ORIENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from tkinter import filedialog, messagebox
 
-CONFIG_FILE = "gateway_config.json"
+CONFIG_FILE = "sweetools_config.json"
 
 def obter_memorias():
     if os.path.exists(CONFIG_FILE):
