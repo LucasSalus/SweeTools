@@ -17,15 +17,11 @@ class SweeToolsApp(ctk.CTk):
         self.geometry("550x700")
         ctk.set_appearance_mode("system")
         
-# O try/except para o ícone
         try:
-            # O iconbitmap é o comando oficial para arquivos .ico no Windows
             self.iconbitmap(resource_path("ferramentas.ico"))
         except Exception as e:
-            # Se falhar (por exemplo, em Linux), ele ignora e não trava o app
             print(f"Não foi possível carregar ferramentas.ico: {e}")
 
-        # O código abaixo DEVE estar na mesma linha do "try" e do "except"
         self.container = ctk.CTkFrame(self, fg_color="transparent")
         self.container.pack(expand=True, fill="both")
 
@@ -51,17 +47,12 @@ class SweeToolsApp(ctk.CTk):
 
     def setup_menu(self):
         ctk.CTkLabel(self.frame_menu, text="CENTRAL DE COMANDO", font=("Roboto", 26, "bold")).pack(pady=40)
-        try:
-           # Mude de image.qrcode.png para ferramentas.png
-            img_path = "ferramentas.png"
-            img = ctk.CTkImage(Image.open(resource_path(img_path)), size=(40, 40))
-        except: img = None
 
-        ctk.CTkButton(self.frame_menu, text="  GERADOR DE QR CODE", image=img, compound="left",
-                      width=320, height=80, corner_radius=15, font=("Roboto", 16, "bold"),
+        ctk.CTkButton(self.frame_menu, text="GERADOR DE QR CODE", width=320, height=80,
+                      corner_radius=15, font=("Roboto", 16, "bold"),
                       command=lambda: self.mostrar_tela(self.frame_qr)).pack(pady=15)
 
-        ctk.CTkButton(self.frame_menu, text="  CONVERSOR CSV -> WORD", 
+        ctk.CTkButton(self.frame_menu, text="CONVERSOR CSV -> WORD", 
                       width=320, height=80, corner_radius=15, font=("Roboto", 16, "bold"),
                       fg_color="#2c3e50", hover_color="#1a252f",
                       command=lambda: self.mostrar_tela(self.frame_csv)).pack(pady=15)
