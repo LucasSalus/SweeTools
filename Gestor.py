@@ -10,10 +10,10 @@ def resource_path(relative_path):
         base_path = os.path.abspath(".")
     return os.path.join(base_path, os.path.basename(relative_path))
 
-class GatewayApp(ctk.CTk):
+class SweeToolsApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Gateway - Central de Ferramentas")
+        self.title("SweeTools - Central de Ferramentas")
         self.geometry("550x700")
         ctk.set_appearance_mode("system")
         
@@ -53,7 +53,7 @@ class GatewayApp(ctk.CTk):
         ctk.CTkLabel(self.frame_menu, text="CENTRAL DE COMANDO", font=("Roboto", 26, "bold")).pack(pady=40)
         try:
            # Mude de image.qrcode.png para ferramentas.png
-            img_path = r'C:\Users\Sistema-C3\OneDrive\Área de Trabalho\Área de Trabalho\chatbot\py\app\ferramentas.png'
+            img_path = "ferramentas.png"
             img = ctk.CTkImage(Image.open(resource_path(img_path)), size=(40, 40))
         except: img = None
 
@@ -114,4 +114,4 @@ class GatewayApp(ctk.CTk):
         else: self.mostrar_tela(self.frame_menu)
 
 if __name__ == "__main__":
-    GatewayApp().mainloop()
+    SweeToolsApp().mainloop()
